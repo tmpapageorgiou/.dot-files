@@ -24,6 +24,7 @@ alias gs='git status'
 alias gl='git log'
 alias gc='git commit -m'
 alias ga='git add'
+alias gm='git commit --amend'
 
 # vim alias
 alias vm='vim'
