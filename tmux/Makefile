@@ -13,6 +13,13 @@ TMUX := .tmux.conf
 
 install: tmux.conf
 	@echo -e "\n${BROWN}# TMUX INSTALL${END_COLOR}"
-	@echo -e "${BLUE}placing tmux.conf file at '$(USER_HOME)/$(TMUX)'${END_COLOR}"
+	@echo -e "${BLUE}placing tmux.conf file at '$(HOME)/$(TMUX)'${END_COLOR}"
 	ln -s `pwd`/tmux.conf $(HOME)/$(TMUX)
 	@echo -e "$(BROWN)**\n$(END_COLOR)"
+
+uninstall:
+	@echo -e "\n${BROWN}# TMUX UNINSTALL${END_COLOR}"
+	@echo -e "${BLUE}removing tmux.conf file from '$(HOME)/$(TMUX)'${END_COLOR}"
+	rm $(HOME)/$(TMUX)
+	@echo -e "$(BROWN)**\n$(END_COLOR)"
+
