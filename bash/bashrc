@@ -122,10 +122,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GOROOT=$HOME/.go
-export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export GOBIN=$GOPATH/bin
 
-[[ -s "/home/thiago/.gvm/scripts/gvm" ]] && source "/home/thiago/.gvm/scripts/gvm"
+[ -s "/home/thiago/.gvm/scripts/gvm" ] && source "/home/thiago/.gvm/scripts/gvm"
+
+export NVM_DIR="/home/thiago/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export WORKON_HOME=~/.env
+mkdir -p $WORKON_HOME
+[ -s "/usr/share/virtualenvwrapper/virtualenvwrapper.sh" ] && source "/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
