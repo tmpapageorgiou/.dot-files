@@ -122,11 +122,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GOPATH=$HOME/.go
+[ -s "/home/thiago/.gvm/scripts/gvm" ] && source "/home/thiago/.gvm/scripts/gvm"
+
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export GOBIN=$GOPATH/bin
-
-[ -s "/home/thiago/.gvm/scripts/gvm" ] && source "/home/thiago/.gvm/scripts/gvm"
+export GOPATH=$GOPATH:$HOME/repo
 
 export NVM_DIR="/home/thiago/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
