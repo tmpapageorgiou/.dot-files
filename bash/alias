@@ -18,6 +18,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# makefile
+alias m='make'
+
 # git aliases
 alias g='git'
 alias gs='git status'
@@ -25,9 +28,16 @@ alias gl='git log'
 alias gc='git commit -m'
 alias ga='git add'
 alias gm='git commit --amend'
+alias gd='git diff --color'
+alias gg='git grep'
+
+# go 
+alias got='go test'
+alias gt='go test'
 
 # vim alias
 alias vm='vim'
+alias ivm='vim'
 alias v='vim'
 
 # sudo
