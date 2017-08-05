@@ -30,6 +30,7 @@ alias ga='git add'
 alias gm='git commit --amend'
 alias gd='git diff --color'
 alias gg='git grep'
+alias gp='git push origin "`git rev-parse --abbrev-ref HEAD`"'
 
 # go 
 alias got='go test'
