@@ -6,20 +6,19 @@
 # defines the shell to the make application
 SHELL := /bin/bash
 
+BUILD_PATH=`pwd`${BUILD_DIR}
+
 # bashrc file name
 TMUX := .tmux.conf
 
-.PHONY := install
+.PHONY := install build
 
-install: tmux.conf
+install: build .tmux.conf
 	@echo -e "\n${BROWN}# TMUX INSTALL${END_COLOR}"
 	@echo -e "${BLUE}placing tmux.conf file at '$(HOME)/$(TMUX)'${END_COLOR}"
-	ln -s `pwd`/tmux.conf $(HOME)/$(TMUX)
+	install -b ${BUILD_PATH}${TMUX} $(HOME)/$(TMUX)
 	@echo -e "$(BROWN)**\n$(END_COLOR)"
 
-uninstall:
-	@echo -e "\n${BROWN}# TMUX UNINSTALL${END_COLOR}"
-	@echo -e "${BLUE}removing tmux.conf file from '$(HOME)/$(TMUX)'${END_COLOR}"
-	rm $(HOME)/$(TMUX)
-	@echo -e "$(BROWN)**\n$(END_COLOR)"
-
+build:
+	mkdir ${BUILD_PATH}
+	ln -s `pwd`/${TMUX} ${BUILD_PATH}/

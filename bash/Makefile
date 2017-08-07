@@ -6,6 +6,8 @@
 # defines the shell to the make application
 SHELL := /bin/bash
 
+BUILD_PATH=`pwd`${BUILD_DIR}
+
 # bashrc file name
 BASHRC := .bashrc
 
@@ -15,23 +17,21 @@ ALIAS := .bash_aliases
 # Profile script
 PROFILE := profile
 
-.PHONY := install
+.PHONY := install build
 
 # Configuration directory on system
 ETC_DIR := /etc
 
 
-install: bashrc alias
+install: .bashrc .bash_aliases build
 	@echo -e "\n${BROWN}# BASH INSTALL${END_COLOR}"
 	@echo -e "${BLUE}placing bashrc file at '$(HOME)/$(BASHRC)'${END_COLOR}"
-	ln -s `pwd`/bashrc $(HOME)/$(BASHRC)
+	install -b ${BUILD_PATH}$(BASHRC) $(HOME)/$(BASHRC)
 	@echo -e "${BLUE}placing bash_aliases file at '$(HOME)/$(ALIAS)'${END_COLOR}"
-	ln -s `pwd`/alias $(HOME)/$(ALIAS)
+	install -b ${BUILD_PATH}$(ALIAS) $(HOME)/$(ALIAS)
 	@echo -e "$(BROWN)**\n$(END_COLOR)"
 
-uninstall:
-	@echo -e "\n${BROWN}# BASH UNINSTALL${END_COLOR}"
-	@echo -e "${BLUE}removing bashrc file at '$(HOME)/$(BASHRC)'${END_COLOR}"
-	rm $(HOME)/$(BASHRC)
-	@echo -e "${BLUE}removing bash_aliases file at '$(HOME)/$(ALIAS)'${END_COLOR}"
-	rm $(HOME)/$(ALIAS)
+build:
+	mkdir ${BUILD_DIR}
+	ln -s `pwd`/$(BASHRC) ${BUILD_DIR}/$(BASHRC)
+	ln -s `pwd`/$(ALIAS) ${BUILD_DIR}/$(ALIAS)
