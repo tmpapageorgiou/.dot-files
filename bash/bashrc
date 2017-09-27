@@ -134,3 +134,4 @@ export NVM_DIR="/home/thiago/.nvm"
 export WORKON_HOME=~/.env
 mkdir -p $WORKON_HOME
 [ -s "/usr/share/virtualenvwrapper/virtualenvwrapper.sh" ] && source "/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
