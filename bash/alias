@@ -35,6 +35,7 @@ alias gp='git push origin "`git rev-parse --abbrev-ref HEAD`"'
 alias gf='$EDITOR `git diff --name-only | uniq`'
 alias glg='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n" --abbrev-commit --date=relative --branches'
 alias gls='git log -stat'
+alias gpl='git pull origin "`git rev-parse --abbrev-ref HEAD`"'
 
 # go 
 alias got='go test'
