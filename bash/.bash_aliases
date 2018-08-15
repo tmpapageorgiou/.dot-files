@@ -34,10 +34,13 @@ alias gg='git grep'
 alias gp='git push origin "`git rev-parse --abbrev-ref HEAD`"'
 alias gf='$EDITOR `git diff --name-only | uniq`'
 alias glg='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%D%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n" --abbrev-commit --date=relative --branches'
+alias glga='git log --all --graph --pretty=format:"%Cred%h%Creset -%C(yellow) %D%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n" --abbrev-commit --date=relative --branches'
+#git log --all --graph --decorate --oneline --simplify-by-decoration
 alias gls='git log -stat'
 alias gpl='git pull origin "`git rev-parse --abbrev-ref HEAD`"'
 alias gck='git checkout'
 alias gb='git branch -a'
+alias gstatsgo='git ls-tree -r -z --name-only HEAD -- */*.go | xargs -0 -n1 git blame --line-porcelain HEAD |grep  "^author "|sort|uniq -c|sort -nr'
 
 # go 
 alias got='go test'
